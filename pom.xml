@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>net.lim</groupId>
 	<artifactId>projectS</artifactId>
-	<version>0.01a</version>
+	<version>0.01b</version>
 	<name>projectS</name>
 	<description>Demo project for Spring Boot</description>
 
