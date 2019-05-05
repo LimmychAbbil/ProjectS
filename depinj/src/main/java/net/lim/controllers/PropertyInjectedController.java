@@ -8,9 +8,9 @@ import org.springframework.stereotype.Controller;
 public class PropertyInjectedController {
 
     @Autowired
-    public GreetingService greetingService;
+    public GreetingService anotherGreetingService;
 
     public void sayHello() {
-        System.out.println(greetingService.getGreetingMessage());
+        System.out.println(anotherGreetingService.getGreetingMessage());
     }
 }

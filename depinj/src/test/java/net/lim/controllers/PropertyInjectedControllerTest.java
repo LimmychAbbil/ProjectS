@@ -25,7 +25,7 @@ public class PropertyInjectedControllerTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
 
         this.propertyInjectedController = new PropertyInjectedController();
-        propertyInjectedController.greetingService = new GreetingServiceImpl();
+        propertyInjectedController.anotherGreetingService = new GreetingServiceImpl();
     }
 
     @Test
