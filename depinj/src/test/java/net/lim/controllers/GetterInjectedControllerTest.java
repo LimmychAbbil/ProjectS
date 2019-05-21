@@ -23,7 +23,7 @@ public class GetterInjectedControllerTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
 
         this.propertyInjectedController = new GetterInjectedController();
-        propertyInjectedController.setGreetingService(new GreetingServiceImpl());
+//        propertyInjectedController.setGreetingService(new GreetingServiceImpl());
     }
 
     @Test

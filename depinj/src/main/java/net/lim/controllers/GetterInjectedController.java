@@ -14,7 +14,7 @@ public class GetterInjectedController {
         System.out.println(greetingService.getGreetingMessage());
     }
     @Autowired
-    public void setGreetingService(@Qualifier("greetingServiceImpl") GreetingService greetingService) {
+    public void setGreetingService(GreetingService greetingService) {
         System.out.println("123");
         this.greetingService = greetingService;
     }

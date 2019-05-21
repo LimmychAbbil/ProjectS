@@ -21,7 +21,7 @@ public class ConstructorInjectedControllerTest {
         byteArrayOutputStream = new ByteArrayOutputStream();
         System.setOut(new PrintStream(byteArrayOutputStream));
 
-        this.propertyInjectedController = new ConstructorInjectedController(new GreetingServiceImpl());
+//        this.propertyInjectedController = new ConstructorInjectedController(new GreetingServiceImpl());
     }
 
     @Test

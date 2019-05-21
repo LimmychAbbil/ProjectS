@@ -13,7 +13,7 @@ public class ConstructorInjectedController {
         System.out.println(greetingService.getGreetingMessage());
     }
 
-    public ConstructorInjectedController(@Qualifier("anotherGreetingService") GreetingService greetingService) {
+    public ConstructorInjectedController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 }

@@ -1,5 +1,8 @@
 package net.lim.controllers;
 
+import net.lim.config.GreetingServiceConfig;
+import net.lim.repositories.GreetingRepository;
+import net.lim.service.GreetingServiceFactory;
 import net.lim.service.GreetingServiceImpl;
 import org.junit.After;
 import org.junit.Assert;
@@ -25,7 +28,7 @@ public class PropertyInjectedControllerTest {
         System.setOut(new PrintStream(byteArrayOutputStream));
 
         this.propertyInjectedController = new PropertyInjectedController();
-        propertyInjectedController.anotherGreetingService = new GreetingServiceImpl();
+//        propertyInjectedController.anotherGreetingService = new GreetingServiceImpl();
     }
 
     @Test
