@@ -1,13 +1,13 @@
-package net.lim.recipies;
+package net.lim.recipes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RecipiesApplication {
+public class RecipesApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RecipiesApplication.class, args);
+        SpringApplication.run(RecipesApplication.class, args);
     }
 
 }

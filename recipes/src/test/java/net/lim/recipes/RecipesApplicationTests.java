@@ -1,4 +1,4 @@
-package net.lim.recipies;
+package net.lim.recipes;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RecipiesApplicationTests {
+public class RecipesApplicationTests {
 
     @Test
     public void contextLoads() {

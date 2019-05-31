@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>net.lim</groupId>
-    <artifactId>recipies</artifactId>
+    <artifactId>recipes</artifactId>
     <version>0.01a</version>
-    <name>recipies</name>
+    <name>recipes</name>
     <description>SpringMVC assignment</description>
 
     <properties>
