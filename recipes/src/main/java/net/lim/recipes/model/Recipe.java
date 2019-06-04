@@ -13,7 +13,7 @@ public class Recipe {
 
     private String url;
 
-    private String directions;
+    private String descriptions;
 
     private Difficulty difficulty;
 
@@ -62,12 +62,12 @@ public class Recipe {
         this.url = url;
     }
 
-    public String getDirections() {
-        return directions;
+    public String getDescriptions() {
+        return descriptions;
     }
 
-    public void setDirections(String directions) {
-        this.directions = directions;
+    public void setDescriptions(String descriptions) {
+        this.descriptions = descriptions;
     }
 
     public Difficulty getDifficulty() {

@@ -1,17 +1,17 @@
 package net.lim.recipes.model;
 
 public class Category {
-    private String departmentName;
+    private String categoryName;
 
-    public Category(String departmentName) {
-        this.departmentName = departmentName;
+    public Category(String categoryName) {
+        this.categoryName = categoryName;
     }
 
-    public String getDepartmentName() {
-        return departmentName;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setDepartmentName(String departmentName) {
-        this.departmentName = departmentName;
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
     }
 }
