@@ -1,8 +1,22 @@
 package net.lim.recipes.model;
 
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
+
 //TODO lombok
+@Entity
 public class Recipe {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private Integer prepTime;
 
     private Integer cookTime;
@@ -17,7 +31,11 @@ public class Recipe {
 
     private Difficulty difficulty;
 
+    @Lob
     private byte[] image;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Notes notes;
 
     public Recipe() {
     }
@@ -84,5 +102,21 @@ public class Recipe {
 
     public void setImage(byte[] image) {
         this.image = image;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Notes getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Notes notes) {
+        this.notes = notes;
     }
 }
