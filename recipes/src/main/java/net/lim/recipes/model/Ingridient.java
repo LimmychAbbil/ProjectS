@@ -2,10 +2,12 @@ package net.lim.recipes.model;
 
 import org.hibernate.annotations.GeneratorType;
 
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
 public class Ingridient {
@@ -17,6 +19,7 @@ public class Ingridient {
 
     private BigDecimal amount;
 
+    @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure unitOfMeasure;
 
     @ManyToOne
