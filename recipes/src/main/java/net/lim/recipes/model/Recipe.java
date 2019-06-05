@@ -7,7 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import java.util.Set;
 
 //TODO lombok
 @Entity
@@ -37,6 +39,8 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
+    private Set<Ingridient> ingridients;
     public Recipe() {
     }
 
@@ -118,5 +122,13 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+    }
+
+    public Set<Ingridient> getIngridients() {
+        return ingridients;
+    }
+
+    public void setIngridients(Set<Ingridient> ingridients) {
+        this.ingridients = ingridients;
     }
 }
