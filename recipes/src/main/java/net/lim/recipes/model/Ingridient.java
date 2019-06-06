@@ -1,7 +1,6 @@
 package net.lim.recipes.model;
 
-import org.hibernate.annotations.GeneratorType;
-
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import java.math.BigDecimal;
 
+@Entity
 public class Ingridient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
