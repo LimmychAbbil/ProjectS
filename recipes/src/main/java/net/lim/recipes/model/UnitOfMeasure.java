@@ -9,10 +9,6 @@ public class UnitOfMeasure {
     @Id
     private String uom;
 
-    public UnitOfMeasure(String uom) {
-        this.uom = uom;
-    }
-
     public String getUom() {
         return uom;
     }
