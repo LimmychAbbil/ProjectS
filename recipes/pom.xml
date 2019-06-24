@@ -10,7 +10,7 @@
     </parent>
     <groupId>net.lim</groupId>
     <artifactId>recipes</artifactId>
-    <version>0.01d</version>
+    <version>0.01e</version>
     <name>recipes</name>
     <description>SpringMVC assignment</description>
 
@@ -41,6 +41,10 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -1,13 +1,10 @@
 package net.lim.recipes.model;
 
+import lombok.ToString;
+
+@ToString
 public enum Difficulty {
     EASY,
     MODERATE,
     HARD;
-
-
-    @Override
-    public String toString() {
-        return super.toString().toLowerCase();
-    }
 }

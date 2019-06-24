@@ -1,5 +1,7 @@
 package net.lim.recipes.model;
 
+import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,6 +10,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 @Entity
+@Data
 public class Notes {
 
     @Id
@@ -19,33 +22,4 @@ public class Notes {
 
     @OneToOne
     private Recipe recipe;
-
-    public Notes(String notes, Recipe recipe) {
-        this.notes = notes;
-        this.recipe = recipe;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
