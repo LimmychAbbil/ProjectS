@@ -1,6 +1,5 @@
 package net.lim.recipes.services;
 
-import net.lim.recipes.model.Recipe;
 import net.lim.recipes.repositories.RecipeRepository;
 import org.springframework.stereotype.Service;
 
