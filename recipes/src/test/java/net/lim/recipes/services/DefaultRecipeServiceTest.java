@@ -34,7 +34,7 @@ public class DefaultRecipeServiceTest {
 
         when(recipeRepository.findAll()).thenReturn(Collections.singletonList(someRecipe));
 
-        List<String> recipeSet = service.getListOfRecipes();
+        List<Recipe> recipeSet = service.getListOfRecipes();
 
         verify(recipeRepository).findAll();
         assertEquals(1, recipeSet.size());

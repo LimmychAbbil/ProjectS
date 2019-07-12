@@ -40,18 +40,8 @@
 <div class="container">
 
     <div class="starter-template">
-        <h2>All recipes list</h2>
-        <p class="lead">All recipes</p>
-        <table class="table">
-            <tr class="thead-dark">
-                <th>Recipe id</th>
-                <th>Description</th>
-            </tr>
-            <tr th:each="r : ${recipe}">
-                <td th:text="${r.id}">>No ID provided</td>
-                <td><a th:text="${r.descriptions}" th:href="@{/recipe/} + ${r.id}">Description missed</a></td>
-            </tr>
-        </table>
+        <h2>Recipe </h2>
+        <div th:text="${recipe}">Recipe toString()</div>
     </div>
 
 </div><!-- /.container -->
