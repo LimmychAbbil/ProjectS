@@ -4,9 +4,21 @@
     <meta charset="UTF-8"/>
     <title>Main page</title>
 
+
     <!-- Bootstrap -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
+    <style>
+        .panel-primary > .panel-heading {
+            background-image: none;
+            background-color: #080808;
+            color: white;
+        }
+
+        .panel-primary {
+            border-color: black;
+        }
+    </style>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -16,7 +28,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,8 +52,40 @@
 <div class="container">
 
     <div class="starter-template">
-        <h2>Recipe </h2>
-        <div th:text="${recipe}">Recipe toString()</div>
+        <h2 th:text="'Recipe ' + ${recipe.descriptions}">Recipe NAME</h2>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">Recipe main info</div>
+            <div class="panel-body">
+                <ul class="list-group" style="margin-left: 2%">
+                    <li th:text="'Difficulty: ' + ${recipe.difficulty}">Diff level</li>
+                    <li th:text="'Preparation time ' + ${recipe.prepTime} + ' min'">Preparation time</li>
+                    <li th:text="'Cooking time ' + ${recipe.cookTime} + ' min'">Cooking time</li>
+                    <li th:if="${recipe.servings != null}" th:text="'Servings ' + ${recipe.servings}">Servings</li>
+                    <li th:if="${recipe.source != null}" th:text="'Source: ' + ${recipe.source}">Source</li>
+                    <li th:if="${recipe.url != null}" th:text="'More info: ' + ${recipe.url}">URL</li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Descriptions</div>
+            <div class="panel-body" th:text="${recipe.descriptions}">Descriptions</div>
+        </div>
+        <br>
+        <div class="panel panel-primary" th:if="${recipe.ingridients != null && recipe.ingridients.size() > 0}">
+            <div class="panel-heading">Ingridients</div>
+            <div class="panel-body">
+                <ul>
+                    <li th:each="ingr : ${recipe.ingridients}"></li>
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="panel panel-primary" th:if="${recipe.notes != null}">
+            <div class="panel-heading">Notes</div>
+            <div class="panel-body" th:text="${recipe.notes.notes}"></div>
+        </div>
     </div>
 
 </div><!-- /.container -->
