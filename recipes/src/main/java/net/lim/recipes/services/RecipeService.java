@@ -7,4 +7,6 @@ import java.util.List;
 public interface RecipeService {
     List<Recipe> getListOfRecipes();
     Recipe getRecipeById(Long id);
+
+//    RecipeCommand writeOrUpdateRecipe(RecipeCommand recipeCommand);
 }

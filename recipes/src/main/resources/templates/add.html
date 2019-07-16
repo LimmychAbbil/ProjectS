@@ -36,25 +36,12 @@
         </div><!--/.nav-collapse -->
     </div>
 </div>
-<div style="text-align: right; float:right; margin-right: 2%;display: inline-block;" id="addButton">
-    Какой-то текст
-    <a href="add.html"><img src="icons/plus.png"/></a>
-</div>
+
 <div class="container">
 
     <div class="starter-template">
-        <h2>All recipes list</h2>
-        <p class="lead">All recipes</p>
-        <table class="table">
-            <tr class="thead-dark">
-                <th>Recipe id</th>
-                <th>Description</th>
-            </tr>
-            <tr th:each="r : ${recipe}">
-                <td th:text="${r.id}">>No ID provided</td>
-                <td><a th:text="${r.descriptions}" th:href="@{/recipe/} + ${r.id}">Description missed</a></td>
-            </tr>
-        </table>
+        <h3><a href="/add/category">Add a category</a></h3>
+        <h3><a href="/add/recipe">Add a recipe</a></h3>
     </div>
 
 </div><!-- /.container -->

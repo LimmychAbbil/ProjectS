@@ -52,7 +52,8 @@
 <div class="container">
 
     <div class="starter-template">
-        <h2 th:text="'Recipe ' + ${recipe.descriptions}">Recipe NAME</h2>
+        <h2 th:text="${recipe.descriptions}">Recipe NAME</h2>
+        <h5 th:text="${recipe.category}">Category</h5>
 
         <div class="panel panel-primary">
             <div class="panel-heading">Recipe main info</div>
