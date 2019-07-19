@@ -33,4 +33,9 @@ public class IndexController {
         model.addAttribute("recipe", service.getRecipeById(Long.valueOf(id)));
         return "recipe";
     }
+
+    @RequestMapping("/add")
+    public String getAddPage() {
+        return "redirect:/add.html";
+    }
 }

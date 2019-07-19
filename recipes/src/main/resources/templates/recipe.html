@@ -53,7 +53,9 @@
 
     <div class="starter-template">
         <h2 th:text="${recipe.descriptions}">Recipe NAME</h2>
-        <h5 th:text="${recipe.category}">Category</h5>
+        <div id="categories" th:each="cat : ${recipe.categories}">
+            <h5 th:text="${cat.categoryName}">Category</h5>
+        </div>
 
         <div class="panel panel-primary">
             <div class="panel-heading">Recipe main info</div>
