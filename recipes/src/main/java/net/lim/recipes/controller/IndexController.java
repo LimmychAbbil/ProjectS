@@ -2,6 +2,7 @@ package net.lim.recipes.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import net.lim.recipes.commands.CategoryCommand;
+import net.lim.recipes.model.Category;
 import net.lim.recipes.model.Recipe;
 import net.lim.recipes.services.CategoryService;
 import net.lim.recipes.services.RecipeService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @Slf4j
@@ -33,6 +35,13 @@ public class IndexController {
         model.addAttribute("recipe", recipeList);
         log.debug("Get index page request. Available recipes size: " + recipeList.size());
         return "index";
+    }
+
+    @RequestMapping("/categories")
+    public String getCategoriesPage(Model model) {
+        Set<Category> categories = categoryService.getAllCategories();
+        model.addAttribute("categories", categories);
+        return "categories";
     }
 
     @RequestMapping("/recipe/{id}")
@@ -56,6 +65,6 @@ public class IndexController {
     @PostMapping("/add/category")
     public String submitNewCommand(@ModelAttribute CategoryCommand command) {
         categoryService.addOrUpdateCategory(command);
-        return "redirect:/index";
+        return "redirect:/categories";
     }
 }
