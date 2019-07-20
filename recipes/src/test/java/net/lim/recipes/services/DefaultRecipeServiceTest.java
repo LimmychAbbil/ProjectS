@@ -40,4 +40,5 @@ public class DefaultRecipeServiceTest {
         assertEquals(1, recipeSet.size());
 
     }
+
 }

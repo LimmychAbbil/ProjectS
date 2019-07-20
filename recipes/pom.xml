@@ -10,7 +10,7 @@
     </parent>
     <groupId>net.lim</groupId>
     <artifactId>recipes</artifactId>
-    <version>0.01g</version>
+    <version>0.01h</version>
     <name>recipes</name>
     <description>SpringMVC assignment</description>
 

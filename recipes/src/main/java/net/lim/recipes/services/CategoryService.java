@@ -10,4 +10,6 @@ public interface CategoryService {
     Set<Category> getAllCategories();
 
     CategoryCommand addOrUpdateCategory(CategoryCommand command);
+
+    boolean deleteCategory(Category category);
 }

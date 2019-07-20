@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @Slf4j
@@ -66,5 +67,19 @@ public class IndexController {
     public String submitNewCommand(@ModelAttribute CategoryCommand command) {
         categoryService.addOrUpdateCategory(command);
         return "redirect:/categories";
+    }
+
+    @RequestMapping("/categories/delete/{id}")
+    public String deleteCategory(@PathVariable String id, Model model) {
+        Category category = categoryService.getAllCategories().stream().filter(c -> c.getId().equals(Long.valueOf(id))).collect(Collectors.toList()).get(0);
+        boolean success = categoryService.deleteCategory(category);
+        if (success) {
+            log.info("Category " + category.getCategoryName() + " was deleted");
+            model.addAttribute("categories", categoryService.getAllCategories());
+            return "categories";
+        } else {
+            log.error("Can't delete category");
+            return "redirect:/index"; //todo show error
+        }
     }
 }

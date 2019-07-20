@@ -28,4 +28,13 @@ public class DefaultCategoryService implements CategoryService {
         categoryRepository.save(command.convert());
         return command;
     }
+
+    @Override
+    public boolean deleteCategory(Category category) {
+        if (category.getRecipes().size() == 0) {
+            categoryRepository.delete(category);
+            return true;
+        }
+        return false;
+    }
 }

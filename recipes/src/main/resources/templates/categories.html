@@ -46,10 +46,12 @@
             <tr class="thead-dark">
                 <th>Recipe id</th>
                 <th>Description</th>
+                <th></th>
             </tr>
             <tr th:each="r : ${categories}">
                 <td th:text="${r.id}">>No ID provided</td>
                 <td th:text="${r.categoryName}">Description missed</td>
+                <td><a th:href="'/categories/delete/' + ${r.id}" th:if="${r.recipes != null && r.recipes.size()==0}">DELETE BUTTON</a></td>
             </tr>
         </table>
     </div>
