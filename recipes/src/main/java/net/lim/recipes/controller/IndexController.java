@@ -1,11 +1,16 @@
 package net.lim.recipes.controller;
 
 import lombok.extern.slf4j.Slf4j;
+import net.lim.recipes.commands.CategoryCommand;
 import net.lim.recipes.model.Recipe;
+import net.lim.recipes.services.CategoryService;
 import net.lim.recipes.services.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -15,9 +20,11 @@ import java.util.List;
 public class IndexController {
 
     private RecipeService service;
+    private CategoryService categoryService;
 
-    public IndexController(RecipeService service) {
+    public IndexController(RecipeService service, CategoryService categoryService) {
         this.service = service;
+        this.categoryService = categoryService;
     }
 
     @RequestMapping(value = {"", "/", "index"})
@@ -37,5 +44,18 @@ public class IndexController {
     @RequestMapping("/add")
     public String getAddPage() {
         return "redirect:/add.html";
+    }
+
+    @GetMapping("/add/category")
+    public String getAddCommandPage(Model model) {
+        CategoryCommand command = new CategoryCommand();
+        model.addAttribute("category", command);
+        return "addcategory";
+    }
+
+    @PostMapping("/add/category")
+    public String submitNewCommand(@ModelAttribute CategoryCommand command) {
+        categoryService.addOrUpdateCategory(command);
+        return "redirect:/index";
     }
 }

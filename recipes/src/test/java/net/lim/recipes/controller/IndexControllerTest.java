@@ -1,5 +1,6 @@
 package net.lim.recipes.controller;
 
+import net.lim.recipes.services.CategoryService;
 import net.lim.recipes.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,10 +29,13 @@ public class IndexControllerTest {
     @Mock
     RecipeService recipeService;
 
+    @Mock
+    CategoryService categoryService;
+
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        indexController = new IndexController(recipeService);
+        indexController = new IndexController(recipeService, categoryService);
     }
 
     @Test
