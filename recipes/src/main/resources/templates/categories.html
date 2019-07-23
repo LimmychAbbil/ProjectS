@@ -44,13 +44,13 @@
         <p class="lead">All categories</p>
         <table class="table">
             <tr class="thead-dark">
-                <th>Recipe id</th>
-                <th>Description</th>
+                <th>Category nam</th>
+                <th>Recipes in this category</th>
                 <th></th>
             </tr>
             <tr th:each="r : ${categories}">
-                <td th:text="${r.id}">>No ID provided</td>
-                <td th:text="${r.categoryName}">Description missed</td>
+                <td th:text="${r.categoryName}">Category name missed</td>
+                <td  th:if="${r.recipes != null}"><a th:href="'/recipes/show/category/' + ${r.id}" th:text="${r.recipes.size()}">Recipes size</a></td>
                 <td><a th:href="'/categories/delete/' + ${r.id}" th:if="${r.recipes != null && r.recipes.size()==0}">DELETE BUTTON</a></td>
             </tr>
         </table>

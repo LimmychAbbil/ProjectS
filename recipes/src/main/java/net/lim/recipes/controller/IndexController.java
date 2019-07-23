@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Controller
@@ -34,6 +35,7 @@ public class IndexController {
     public String getIndexPage(Model model) {
         List<Recipe> recipeList = service.getListOfRecipes();
         model.addAttribute("recipe", recipeList);
+        model.addAttribute("description", "All recipes list");
         log.debug("Get index page request. Available recipes size: " + recipeList.size());
         return "index";
     }
@@ -67,6 +69,18 @@ public class IndexController {
     public String submitNewCommand(@ModelAttribute CategoryCommand command) {
         categoryService.addOrUpdateCategory(command);
         return "redirect:/categories";
+    }
+
+    @RequestMapping("/recipes/show/category/{id}")
+    public String showRecipesForCategory(@PathVariable String id, Model model) {
+        List<Recipe> allRecipesList = service.getListOfRecipes();
+        Category category = categoryService.getCategoryById(Long.valueOf(id));
+
+        List<Recipe> recipesFromCategory = allRecipesList.stream().filter(r -> r.getCategories().contains(category)).collect(Collectors.toList());
+        model.addAttribute("recipe", recipesFromCategory);
+        model.addAttribute("description", "Recipes from category " + category.getCategoryName());
+        log.debug("Get category filtered recipes request. Available recipes size: " + recipesFromCategory.size());
+        return "index";
     }
 
     @RequestMapping("/categories/delete/{id}")

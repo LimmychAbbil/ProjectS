@@ -6,6 +6,7 @@ import net.lim.recipes.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -36,5 +37,11 @@ public class DefaultCategoryService implements CategoryService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public Category getCategoryById(Long id) {
+        Optional<Category> categoryWithId = categoryRepository.findById(id);
+        return categoryWithId.orElse(null);
     }
 }

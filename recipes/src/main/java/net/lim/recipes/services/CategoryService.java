@@ -12,4 +12,6 @@ public interface CategoryService {
     CategoryCommand addOrUpdateCategory(CategoryCommand command);
 
     boolean deleteCategory(Category category);
+
+    Category getCategoryById(Long valueOf);
 }
