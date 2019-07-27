@@ -8,11 +8,13 @@ import net.lim.recipes.services.CategoryService;
 import net.lim.recipes.services.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Set;
@@ -95,5 +97,14 @@ public class IndexController {
             log.error("Can't delete category");
             return "redirect:/index"; //todo show error
         }
+    }
+
+    @ExceptionHandler(NumberFormatException.class)
+    public ModelAndView handleInvalidNumberException(NumberFormatException e) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("exceptionPage");
+        modelAndView.addObject("exception", e);
+
+        return modelAndView;
     }
 }
