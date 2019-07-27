@@ -98,13 +98,4 @@ public class IndexController {
             return "redirect:/index"; //todo show error
         }
     }
-
-    @ExceptionHandler(NumberFormatException.class)
-    public ModelAndView handleInvalidNumberException(NumberFormatException e) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("exceptionPage");
-        modelAndView.addObject("exception", e);
-
-        return modelAndView;
-    }
 }
